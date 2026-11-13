@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>nongainter ♡ shop</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&display=swap');
+
+:root {
+  --blue: #dceeff;
+  --blue2: #b9d9f5;
+  --purple: #e9ddff;
+  --white: #ffffff;
+  --pink: #f8e5f0;
+  --text: #6d7193;
+  --green: #d9f5df;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  background: #f5f8ff;
+  color: var(--text);
+  padding-bottom: 100px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 18px 12px;
+}
+
+.logo {
+  font-family: 'Itim', cursive;
+  font-size: 27px;
+  color: #839fc9;
+}
+
+.status {
+  background: var(--green);
+  color: #639b78;
+  border-radius: 30px;
+  padding: 6px 13px;
+  font-size: 12px;
+}
+
+main {
+  padding: 10px 16px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.page {
+  display: none;
+  animation: fade .3s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+
+.hero {
+  background-color: white;
+  background-image:
+    linear-gradient(90deg, #dceeff 1px, transparent 1px),
+    linear-gradient(#dceeff 1px, transparent 1px);
+  background-size: 22px 22px;
+  border: 5px solid white;
+  outline: 1px solid #dce7fa;
+  border-radius: 25px;
+  padding: 25px 18px;
+  text-align: center;
+  box-shadow: 0 6px 20px #b9cce622;
+}
+
+.hero-inner {
+  background: #ffffffeb;
+  border-radius: 18px;
+  padding: 25px 10px;
+}
+
+.bow {
+  font-size: 30px;
+  color: #a9b9e7;
+}
+
+.hero h1 {
+  font-family: 'Itim', cursive;
+  font-size: 35px;
+  color: #8ca9d5;
+  margin: 8px 0;
+}
+
+.hero p {
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--purple);
+  color: #927bb7;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-top: 12px;
+}
+
+/* CONTENT */
+
+.section-title {
+  font-family: 'Itim', cursive;
+  font-size: 23px;
+  margin: 25px 0 13px;
+  color: #849fc9;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 17px;
+  margin-bottom: 13px;
+  box-shadow: 0 4px 15px #b7cce51b;
+  border: 1px solid #edf1fc;
+}
+
+.card h3 {
+  color: #829bc4;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.pill {
+  display: inline-block;
+  background: #eef4ff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin: 4px 3px 0 0;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.main-btn {
+  background: linear-gradient(120deg, #c9e3ff, #e5d9ff);
+  color: #667eac;
+  padding: 12px 18px;
+  border-radius: 30px;
+  width: 100%;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+input, textarea {
+  width: 100%;
+  border: 1px solid #e1e8f6;
+  background: #fbfcff;
+  border-radius: 13px;
+  padding: 12px;
+  margin: 7px 0 12px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+}
+
+textarea {
+  min-height: 95px;
+  resize: vertical;
+}
+
+label {
+  font-size: 13px;
+}
+
+.stars {
+  font-size: 28px;
+  color: #d7dce8;
+  margin: 5px 0 12px;
+}
+
+.stars span {
+  cursor: pointer;
+}
+
+.stars span.selected {
+  color: #f3c86e;
+}
+
+.review-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 13px;
+  margin-top: 10px;
+}
+
+.review-meta {
+  font-size: 11px;
+  color: #a3a9c0;
+  margin-bottom: 8px;
+}
+
+.empty {
+  text-align: center;
+  padding: 25px;
+  color: #a6aec5;
+}
+
+/* BOTTOM MENU */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffffed;
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #e8edfa;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 4px calc(10px + env(safe-area-inset-bottom));
+  z-index: 10;
+}
+
+.nav-item {
+  background: transparent;
+  color: #a2abc4;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.nav-item .emoji {
+  font-size: 20px;
+}
+
+.nav-item.active {
+  color: #829fd0;
+  font-weight: 500;
+}
+
+/* MUSIC */
+
+.music {
+  position: fixed;
+  bottom: 85px;
+  right: 13px;
+  background: white;
+  box-shadow: 0 4px 15px #8299c533;
+  border: 1px solid #e5eafa;
+  border-radius: 30px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 11;
+  font-size: 11px;
+}
+
+.music button {
+  background: #e5eaff;
+  color: #8097c5;
+  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: #b0b9d0;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">୨୧ nongainter ♡</div>
+  <div class="status">● เปิดให้บริการ</div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="page active" id="home">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="bow">୨୧ ♡ ୨୧</div>
+      <h1>nongainter</h1>
+      <p>Welcome to my little shop ♡</p>
+      <p>ร้านค้าเล็ก ๆ ที่ตั้งใจดูแลทุกออเดอร์</p>
+      <p>เวลาเปิดบริการ 09:00 - 23:00 น.</p>
+      <span class="tag">✧ made with love ✧</span>
+    </div>
+  </div>
+
+  <h2 class="section-title">♡ Welcome ♡</h2>
+
+  <div class="card">
+    <h3>ยินดีต้อนรับเข้าสู่ร้าน nongainter</h3>
+    <p>
+      ขอบคุณที่แวะเข้ามานะคะ
+      เลือกชมสินค้าและบริการได้ตามสบาย
+      มีข้อสงสัยสามารถติดต่อร้านได้เลยค่ะ
+    </p>
+  </div>
+
+  <h2 class="section-title">✧ Our services</h2>
+
+  <div class="card">
+    <h3>♡ บริการของทางร้าน</h3>
+    <span class="pill">Application</span>
+    <span class="pill">Account</span>
+    <span class="pill">Game Top-up</span>
+    <span class="pill">Premium</span>
+    <span class="pill">Digital Service</span>
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="page" id="products">
+
+  <h2 class="section-title">୨୧ Our Products</h2>
+
+  <div class="card">
+    <h3>♡ Application Premium</h3>
+    <p>บริการแอปพลิเคชันพรีเมียม</p>
+    <span class="pill">Netflix</span>
+    <span class="pill">YouTube</span>
+    <span class="pill">Other Apps</span>
+  </div>
+
+  <div class="card">
+    <h3>♡ Account Shop</h3>
+    <p>เลือกชมบัญชีและสินค้าของทางร้าน</p>
+    <span class="pill">Account</span>
+    <span class="pill">Digital Goods</span>
+  </div>
+
+  <div class="card">
+    <h3>♡ Game Top-up</h3>
+    <p>บริการเติมเกมต่าง ๆ</p>
+    <span class="pill">Free Fire</span>
+    <span class="pill">ROV</span>
+  </div>
+
+  <p style="font-size:12px;text-align:center;margin-top:15px">
+    สนใจสินค้า สอบถามร้านได้เลยนะคะ ♡
+  </p>
+
+</section>
+
+<!-- REVIEWS -->
+<section class="page" id="reviews">
+
+  <h2 class="section-title">♡ Customer Reviews</h2>
+
+  <div class="card">
+    <h3>୨୧ ความประทับใจจากลูกค้า</h3>
+    <p>ทุกรีวิวมีความหมายกับร้านของเรานะคะ ♡</p>
+    <button class="main-btn" onclick="openReview()">
+      ✧ เขียนรีวิว / เพิ่มเครดิต ✧
+    </button>
+  </div>
+
+  <div class="card" id="reviewForm" style="display:none">
+    <h3>♡ Write a review</h3>
+
+    <label>ชื่อผู้รีวิว</label>
+    <input id="customerName" placeholder="ชื่อของคุณ...">
+
+    <label>ให้คะแนนร้านค้า</label>
+    <div class="stars" id="starArea">
+      <span data-star="1">★</span>
+      <span data-star="2">★</span>
+      <span data-star="3">★</span>
+      <span data-star="4">★</span>
+      <span data-star="5">★</span>
+    </div>
+
+    <label>ข้อความรีวิว</label>
+    <textarea id="reviewText" placeholder="เขียนความประทับใจของคุณ..."></textarea>
+
+    <label>แนบรูปสินค้า / สลิป (ถ้ามี)</label>
+    <input type="file" id="reviewFile" accept="image/*">
+
+    <button class="main-btn" onclick="submitReview()">
+      ♡ ส่งรีวิว ♡
+    </button>
+
+    <button class="main-btn" style="background:#f4f1fa"
+      onclick="closeReview()">
+      ยกเลิก
+    </button>
+  </div>
+
+  <h2 class="section-title">✧ Review List</h2>
+
+  <div id="reviewList"></div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+
+  <h2 class="section-title">♡ Contact Us</h2>
+
+  <div class="card">
+    <h3>୨୧ ช่องทางติดต่อ</h3>
+    <p>สอบถามสินค้า แจ้งปัญหา หรือพูดคุยกับร้านได้เลยค่ะ</p>
+    <p style="margin-top:12px">LINE : @273jsjmb</p>
+
+    <button class="main-btn"
+      onclick="window.open('https://line.me/R/ti/p/@273jsjmb','_blank')">
+      ♡ ติดต่อผ่าน LINE
+    </button>
+  </div>
+
+  <div class="card">
+    <h3>✧ Thank you</h3>
+    <p>ขอบคุณที่สนับสนุนร้าน nongainter นะคะ</p>
+    <p>୨୧ Thank you for your support ♡</p>
+  </div>
+
+</section>
+
+<footer>
+  ୨୧ nongainter ♡ made with love ୨୧
+</footer>
+
+</main>
+
+<!-- MUSIC PLAYER -->
+<div class="music">
+  <button id="musicBtn" onclick="toggleMusic()">▶</button>
+  <span id="musicName">♡ sweet melody</span>
+</div>
+
+<audio id="musicAudio" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- NAVIGATION -->
+<nav class="bottom-nav">
+
+  <button class="nav-item active" onclick="changePage('home',this)">
+    <span class="emoji">⌂</span>
+    หน้าหลัก
+  </button>
+
+  <button class="nav-item" onclick="changePage('products',this)">
+    <span class="emoji">♡</span>
+    สินค้า
+  </button>
+
+  <button class="nav-item" onclick="changePage('reviews',this)">
+    <span class="emoji">☆</span>
+    เครดิต
+  </button>
+
+  <button class="nav-item" onclick="changePage('contact',this)">
+    <span class="emoji">✉</span>
+    ติดต่อ
+  </button>
+
+</nav>
+
+<script>
+
+let selectedStar = 0;
+
+// เปลี่ยนหน้าโดยไม่โหลดใหม่
+function changePage(page,btn) {
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
+  document.getElementById(page).classList.add('active');
+
+  document.querySelectorAll('.nav-item').forEach(n=>{
+    n.classList.remove('active');
+  });
+
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// เปิดแบบฟอร์มรีวิว
+function openReview() {
+  document.getElementById('reviewForm').style.display='block';
+}
+
+function closeReview() {
+  document.getElementById('reviewForm').style.display='none';
+}
+
+// เลือกดาว
+document.querySelectorAll('#starArea span').forEach(star=>{
+  star.addEventListener('click',()=>{
+    selectedStar = Number(star.dataset.star);
+
+    document.querySelectorAll('#starArea span').forEach(s=>{
+      s.classList.toggle(
+        'selected',
+        Number(s.dataset.star)<=selectedStar
+      );
+    });
+  });
+});
+
+// บันทึกรีวิวในเครื่อง
+async function submitReview() {
+
+  const name = document.getElementById('customerName').value.trim();
+  const message = document.getElementById('reviewText').value.trim();
+  const file = document.getElementById('reviewFile').files[0];
+
+  if(!name || !message || selectedStar===0) {
+    alert('กรุณากรอกชื่อ ข้อความ และคะแนนดาวนะคะ ♡');
+    return;
+  }
+
+  if(file && !file.type.startsWith('image/')) {
+    alert('กรุณาเลือกไฟล์รูปภาพค่ะ');
+    return;
+  }
+
+  if(file && file.size > 2*1024*1024) {
+    alert('รูปภาพต้องมีขนาดไม่เกิน 2 MB ค่ะ');
+    return;
+  }
+
+  let image = '';
+
+  if(file) {
+    image = await new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.onload = ()=>resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  const reviews = JSON.parse(
+    localStorage.getItem('nongainter_reviews') || '[]'
+  );
+
+  reviews.unshift({
+    name,
+    message,
+    star:selectedStar,
+    image,
+    date:new Date().toLocaleDateString('th-TH')
+  });
+
+  try {
+    localStorage.setItem(
+      'nongainter_reviews',
+      JSON.stringify(reviews)
+    );
+  } catch(e) {
+    alert('พื้นที่จัดเก็บไม่เพียงพอ กรุณาลองใช้รูปที่มีขนาดเล็กลงค่ะ');
+    return;
+  }
+
+  document.getElementById('customerName').value='';
+  document.getElementById('reviewText').value='';
+  document.getElementById('reviewFile').value='';
+
+  selectedStar=0;
+
+  document.querySelectorAll('#starArea span').forEach(s=>{
+    s.classList.remove('selected');
+  });
+
+  closeReview();
+  showReviews();
+
+  alert('ส่งรีวิวเรียบร้อยแล้ว ขอบคุณมากค่ะ ♡');
+}
+
+// แสดงรีวิว
+function showReviews() {
+
+  const reviews = JSON.parse(
+    localStorage.getItem('nongainter_reviews') || '[]'
+  );
+
+  const list = document.getElementById('reviewList');
+
+  if(reviews.length===0) {
+    list.innerHTML=`
+      <div class="card empty">
+        ♡ ยังไม่มีรีวิว ♡<br>
+        มาเป็นรีวิวแรกให้ร้านกันนะคะ
+      </div>`;
+    return;
+  }
+
+  list.innerHTML='';
+
+  reviews.forEach(r=>{
+
+    const card=document.createElement('div');
+    card.className='card';
+
+    const heading=document.createElement('h3');
+    heading.textContent='♡ '+r.name;
+
+    const meta=document.createElement('div');
+    meta.className='review-meta';
+    meta.textContent='★'.repeat(r.star)+'☆'.repeat(5-r.star)
+      +' · '+r.date;
+
+    const message=document.createElement('p');
+    message.textContent=r.message;
+
+    card.append(heading,meta,message);
+
+    if(r.image) {
+      const img=document.createElement('img');
+      img.src=r.image;
+      img.className='review-image';
+      img.alt='รูปประกอบรีวิว';
+      card.appendChild(img);
+    }
+
+    list.appendChild(card);
+  });
+}
+
+showReviews();
+
+// เครื่องเล่นเพลง
+const audio=document.getElementById('musicAudio');
+const musicBtn=document.getElementById('musicBtn');
+
+async function toggleMusic() {
+
+  if(audio.paused) {
+    try {
+      await audio.play();
+      musicBtn.textContent='Ⅱ';
+    } catch(e) {
+      alert('ยังเล่นเพลงไม่ได้ค่ะ กรุณาตรวจสอบไฟล์ music.mp3');
+    }
+  } else {
+    audio.pause();
+    musicBtn.textContent='▶';
+  }
+}
+
+</script>
+
+</body>
+</html>
